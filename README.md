@@ -11,4 +11,4 @@ Web aplikasi ini diperuntukan kepada mahasiswa Telkom Univerity dimana kami meny
 | 607062300030 | Dhafin Razaqa Lesmana Putra | dhafinrazaqa     |
 | 607062300081 | Ilham Al Gojali             | ilhamalgojoli    |
 | 607062330043 | Rizka Indah Permata         | RizkaIndahPermata|
-| isi          | Jesika                      |                  |
+| 607062300104 | Jesika Romauli Aritonang    | jesikaromaulia   |
