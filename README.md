@@ -6,9 +6,9 @@ Web aplikasi ini diperuntukan kepada mahasiswa Telkom Univerity dimana kami meny
 
 ### Susunan Tim
 
-| NIM          | Nama                        | Username Github |
-| ------------ | --------------------------- | --------------- |
-| 607062300030 | Dhafin Razaqa Lesmana Putra | dhafinrazaqa    |
-| 607062300081 | Ilham Al Gojali             | ilhamalgojoli   |
-| isi          | Rizka                       |                 |
-| isi          | Jesika                      |                 |
+| NIM          | Nama                        | Username Github  |
+| ------------ | --------------------------- | ---------------  |
+| 607062300030 | Dhafin Razaqa Lesmana Putra | dhafinrazaqa     |
+| 607062300081 | Ilham Al Gojali             | ilhamalgojoli    |
+| 607062330043 | Rizka Indah Permata         | RizkaIndahPermata|
+| isi          | Jesika                      |                  |
