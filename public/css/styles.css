@@ -42,3 +42,9 @@
 .fs-7 {
     font-size: 0.95rem;
 }
+
+/* Padding */
+.p-navbar {
+    padding-right: 7rem !important;
+    padding-left: 7rem !important;
+}

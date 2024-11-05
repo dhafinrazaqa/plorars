@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary font-roboto fs-7">
+<nav class="navbar navbar-expand-lg bg-body-tertiary font-roboto fs-7 shadow p-navbar">
     <div class="container-fluid letter-spacing-3">
         {{-- <a class="navbar-brand" href="#">Plorars</a> --}}
         <a class="navbar-brand me-5" href="#">
@@ -23,8 +23,10 @@
                     <a class="nav-link" href="#">JOIN US</a>
                 </li>
             </ul>
+            <button type="button"
+                class="btn btn-primary letter-spacing-3 px-4 py-2 rounded-pill button-gradient fs-7 ms-auto">SIGN
+                IN</button>
         </div>
-        <button type="button" class="btn btn-primary letter-spacing-3 px-4 py-2 rounded-pill button-gradient fs-7">SIGN
-            IN</button>
+
     </div>
 </nav>
