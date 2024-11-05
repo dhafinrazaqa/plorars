@@ -7,6 +7,14 @@
     font-family: "Roboto", sans-serif;
 }
 
+.font-raleway {
+    font-family: "Raleway", sans-serif;
+}
+
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+}
+
 /* Letter Spacing */
 .letter-spacing-0 {
     letter-spacing: 0em;
@@ -47,4 +55,9 @@
 .p-navbar {
     padding-right: 7rem !important;
     padding-left: 7rem !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #212e50;
 }
