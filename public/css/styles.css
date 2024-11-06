@@ -40,6 +40,35 @@
     letter-spacing: 0.3em;
 }
 
+/* Font Weight */
+.fw-100 {
+    font-weight: 100 !important;
+}
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
 /* Gradient */
 .button-gradient {
     background: linear-gradient(to right, #2ab7cb, #4694b4);
@@ -49,6 +78,12 @@
 /* Font Size */
 .fs-7 {
     font-size: 0.95rem;
+}
+.fs-64px {
+    font-size: 64px;
+}
+.fs-48px {
+    font-size: 48px;
 }
 
 /* Padding */
@@ -60,4 +95,19 @@
 /* Footer */
 .footer {
     background-color: #212e50;
+}
+
+/* Colors */
+.highlight-color {
+    color: #37adbe !important;
+}
+
+/* Hover */
+.minat-bakat-box:hover,
+.mbti-box:hover,
+.rekomendasi-box:hover,
+.reason-1:hover,
+.reason-2:hover,
+.reason-3:hover {
+    transform: scale(1.05);
 }

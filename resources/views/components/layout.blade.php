@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 
-<body>
+<body style="background-color: #F5F5F5;">
     <x-navbar></x-navbar>
-    <main class="container">
+    <main>
         <div>
             {{ $slot }}
         </div>

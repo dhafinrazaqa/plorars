@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary font-roboto fs-7 shadow p-navbar">
+<nav class="navbar navbar-expand-lg bg-body-tertiary font-roboto fs-7 shadow p-navbar bg-white"
+    style="position: sticky; top: 0; z-index: 999">
     <div class="container-fluid letter-spacing-3">
         <a class="navbar-brand me-5" href="#">
             <img src="{{ asset('images/navbar_logo.svg') }}" alt="">
