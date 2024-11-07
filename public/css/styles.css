@@ -111,3 +111,11 @@
 .reason-3:hover {
     transform: scale(1.05);
 }
+
+/* Focus */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
