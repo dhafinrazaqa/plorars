@@ -1,0 +1,113 @@
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.font-roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+.font-raleway {
+    font-family: "Raleway", sans-serif;
+}
+
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+/* Letter Spacing */
+.letter-spacing-0 {
+    letter-spacing: 0em;
+}
+
+.letter-spacing-1 {
+    letter-spacing: 0.05em;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 0.1em;
+}
+
+.letter-spacing-3 {
+    letter-spacing: 0.15em;
+}
+
+.letter-spacing-4 {
+    letter-spacing: 0.2em;
+}
+
+.letter-spacing-5 {
+    letter-spacing: 0.3em;
+}
+
+/* Font Weight */
+.fw-100 {
+    font-weight: 100 !important;
+}
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+/* Gradient */
+.button-gradient {
+    background: linear-gradient(to right, #2ab7cb, #4694b4);
+    border: none;
+}
+
+/* Font Size */
+.fs-7 {
+    font-size: 0.95rem;
+}
+.fs-64px {
+    font-size: 64px;
+}
+.fs-48px {
+    font-size: 48px;
+}
+
+/* Padding */
+.p-navbar {
+    padding-right: 7rem !important;
+    padding-left: 7rem !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #212e50;
+}
+
+/* Colors */
+.highlight-color {
+    color: #37adbe !important;
+}
+
+/* Hover */
+.minat-bakat-box:hover,
+.mbti-box:hover,
+.rekomendasi-box:hover,
+.reason-1:hover,
+.reason-2:hover,
+.reason-3:hover {
+    transform: scale(1.05);
+}
