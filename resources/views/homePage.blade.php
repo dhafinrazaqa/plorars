@@ -1,4 +1,4 @@
-<x-layout-home>
+<x-layout-user>
     <div class="container-fluid p-0" style="height: 200vh;">
         <div class="d-flex justify-content-center align-items-center">
             <div class="position-relative w-100 h-50">
@@ -55,4 +55,4 @@
             <img  src="{{ asset('images/Banner.jpg') }}" class="m-5" style=" width: 85%;">
         </div>
     </div>
-</x-layout-home>
+</x-layout-user>
