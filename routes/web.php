@@ -11,8 +11,8 @@ Route::get('/search', function () {
     return view('searchPage');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/home', function () {
+    return view('homePage');
 });
 
 Route::get('/login', function(){
