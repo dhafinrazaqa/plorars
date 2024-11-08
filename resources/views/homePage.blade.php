@@ -50,7 +50,6 @@
 
 <x-layout-user>
     <div class="container-fluid p-0" style="min-height: 100vh;">
-
         <div class="d-flex justify-content-center align-items-center">
             <div class="position-relative w-100 h-50">
                 <img src="{{ asset('images/Eclips.png') }}" alt="Welcome To Plorars !!"
