@@ -11,9 +11,9 @@ Route::get('/search', function () {
     return view('searchPage');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/homepage', function () {
+    return view('homepage');
+});
 
 Route::get('/login', function(){
     return view('auth.login');
