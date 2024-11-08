@@ -1,31 +1,51 @@
 <style>
-.study-group {
-    background-color: #4874B6;
-}
-
-.ukm {
-    background-color: #37ADBE;
-}
-.responsive-text {
-    font-size: clamp(18px,4vw,64px);
-}
-
-@media (max-width: 768px) {
-    .responsive-text{
-        font-size: 35px;
+    .study-group {
+        background-color: #4874B6;
     }
-}
-@media (max-width: 576px) {
-    .responsive-text{
-        font-size: 26px;
+
+    .ukm {
+        background-color: #37ADBE;
     }
-}
 
-.kegiatan-grid .col {
-    margin-bottom: 45px; 
-}
+    .responsive-text {
+        font-size: clamp(18px, 4vw, 64px);
+    }
 
+    @media (max-width: 768px) {
+        .responsive-text {
+            font-size: 35px;
+        }
 
+        .searching {
+            width: 85% !important;
+        }
+
+        .ukm-box {
+            width: 95% !important;
+        }
+
+        .study-group-box {
+            width: 95% !important;
+        }
+
+        .kegiatan-grid .col {
+            margin-bottom: 25px;
+        }
+
+        .img-banner {
+            width: 65% !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .responsive-text {
+            font-size: 26px;
+        }
+    }
+
+    .kegiatan-grid .col {
+        margin-bottom: 45px;
+    }
 </style>
 
 <x-layout-user>
@@ -35,7 +55,8 @@
             <div class="position-relative w-100 h-50">
                 <img src="{{ asset('images/Eclips.png') }}" alt="Welcome To Plorars !!"
                     class="img-fluid w-100 h-100 object-fit-cover">
-                <h1 class="position-absolute top-50 start-50 translate-middle 
+                <h1
+                    class="position-absolute top-50 start-50 translate-middle 
                     text-center font-raleyway text-white letter-spacing-2 fw-700
                     responsive-text">
                     Welcome, {{-- {{ auth()->user()->name }} --}}Dummy!!
@@ -52,7 +73,7 @@
 
         <div class="position-relative m-5 p-5" style="top:30px;">
             <div class="d-flex justify-content-center align-items-center">
-                <input type="text" class="form-control form-control-lg ps-5 pt-2 fw-400 font-poppins"
+                <input type="text" class="searching form-control form-control-lg ps-5 pt-2 fw-400 font-poppins"
                     placeholder="Cari Kegiatan"
                     style="border-radius:25px; background-image: url('{{ asset('images/search.png') }}'); 
                     background-repeat: no-repeat; background-position: 10px center; width: 95%;">
@@ -61,16 +82,16 @@
 
         <div class="container my-4">
             <div class="row justify-content-center gap-5">
-                <div class="col-md-5">
-                    <a href="{{--{{ route('search', ['category' => 'sg']) }}--}}" class="text-decoration-none">
+                <div class="col-md-5 study-group-box">
+                    <a href="{{-- {{ route('search', ['category' => 'sg']) }} --}}" class="text-decoration-none">
                         <div class="study-group d-flex align-items-center justify-content-center p-4 rounded-4">
                             <span class="fs-1 me-2">📚</span>
                             <span class="text-white fw-bold fs-5">Study Group</span>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-5">
-                    <a href="{{--{{ route('search', ['category' => 'ukm']) }}--}}" class="text-decoration-none">
+                <div class="col-md-5 ukm-box">
+                    <a href="{{-- {{ route('search', ['category' => 'ukm']) }} --}}" class="text-decoration-none">
                         <div class="ukm d-flex align-items-center justify-content-center p-4 rounded-4">
                             <span class="fs-1 me-2">🎉</span>
                             <span class="text-white fw-bold fs-5">Unit Kegiatan Mahasiswa</span>
@@ -82,18 +103,18 @@
 
         <div class="position-relative m-5 p-5">
             <div class="d-flex position-absolute gap-3 m-3" style="left: 84px;">
-                <img src="{{ asset('images/lineBlue.png') }}"/>
+                <img src="{{ asset('images/lineBlue.png') }}" />
                 <h1 class="font-raleway letter-spacing-2 fw-800 m-3">Test</h1>
             </div>
         </div>
 
-        <a href="{{--{{ route('test') }}--}}" class="d-flex justify-content-center align-items-center">
-            <img src="{{ asset('images/test_banner.png') }}" class="m-5" style="width: 85%;">
+        <a href="{{-- {{ route('test') }} --}}" class="d-flex justify-content-center align-items-center">
+            <img src="{{ asset('images/test_banner.png') }}" class="m-5 img-banner" style="width: 85%;">
         </a>
 
         <div class="position-relative m-5 p-5">
             <div class="d-flex position-absolute gap-3 m-3" style="left: 84px;">
-                <img src="{{ asset('images/lineBlue.png') }}"/>
+                <img src="{{ asset('images/lineBlue.png') }}" />
                 <h1 class="font-raleway letter-spacing-2 fw-800 m-3">Semua Kegiatan</h1>
             </div>
         </div>
@@ -130,4 +151,3 @@
         </div>
     </div>
 </x-layout-user>
-
