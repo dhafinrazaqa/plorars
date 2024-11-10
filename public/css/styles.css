@@ -85,11 +85,17 @@
 .fs-48px {
     font-size: 48px;
 }
+.fs-36px {
+    font-size: 36px;
+}
 
 /* Padding */
 .p-navbar {
     padding-right: 7rem !important;
     padding-left: 7rem !important;
+}
+.p-48px {
+    padding: 48px !important;
 }
 
 /* Footer */
