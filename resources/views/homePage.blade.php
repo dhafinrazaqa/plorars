@@ -107,8 +107,8 @@
             </div>
         </div>
 
-        <a href="{{-- {{ route('test') }} --}}" class="d-flex justify-content-center align-items-center">
-            <img src="{{ asset('images/test_banner.png') }}" class="m-5 img-banner" style="width: 85%;">
+        <a href="{{ url('test') }}" class="d-flex justify-content-center align-items-center">
+            <img src="{{ asset('images/Banner.jpg') }}" class="m-5 img-banner" style="width: 85%;">
         </a>
 
         <div class="position-relative m-5 p-5">
