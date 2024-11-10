@@ -24,6 +24,16 @@ Route::get('/test', function(){
     return view('test');
 });
 
+Route::get('/profile/mbti', function(){
+    return view('/profile/mbti');
+});
+Route::get('/profile/kegiatan', function(){
+    return view('/profile/kegiatan');
+});
+
+// Route::get('/register',[RegisteredUserController::class, 'create'])->name('register');
+// Route::post('/register',[RegisteredUserController::class, 'store']);
+
 Route::get('/dashboard|admin', function(){
     return view('dashboard-admin');
 });
