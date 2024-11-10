@@ -25,7 +25,6 @@
     <x-footer></x-footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="{{ asset('js/toggleEmoji.js')}}"></script>
-    <script defer src="{{ asset('js/loadQuizMbti.js')}}"></script>
+    <script defer src="{{ asset('js/loadQuizMinatBakat.js')}}"></script>
 </body>
 </html>
