@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuestionMinatBakat;
 
 Route::get('/', function () {
     return view('landingPage');
@@ -47,12 +48,19 @@ Route::get('/testMinatBakat',function(){
 
 require __DIR__.'/auth.php'; 
 
+// generate soal quiz
+
+Route::post('/tampilkan-quiz',[QuestionController::class, 'tampilkanQuiz']);
+Route::post('/simpan-hasil',[QuestionController::class, 'simpanHasil']);
+
+Route::post('/tampilkan-quiz-mb',[QuestionMinatBakat::class, 'tampilkanQuiz']);
+Route::post('/simpan-hasil-minat-bakat',[QuestionMinatBakat::class, 'simpanHasil']);
+
+//register & login
 
 Route::get('/login-register', function () {
     return view('auth.login-register');
 })->name('login-register')->middleware('guest');
 
-// Route::post('/register', [AuthController::class, 'register']);
-// Route::post('/login', [AuthController::class, 'login']);
 
 
