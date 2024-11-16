@@ -56,11 +56,11 @@ Route::post('/simpan-hasil',[QuestionController::class, 'simpanHasil']);
 Route::post('/tampilkan-quiz-mb',[QuestionMinatBakat::class, 'tampilkanQuiz']);
 Route::post('/simpan-hasil-minat-bakat',[QuestionMinatBakat::class, 'simpanHasil']);
 
+Route::get('/detail', [App\Http\Controllers\DetailController::class, 'index']);
+
 //register & login
 
 Route::get('/login-register', function () {
     return view('auth.login-register');
 })->name('login-register')->middleware('guest');
-
-
 
