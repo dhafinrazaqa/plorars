@@ -21,12 +21,26 @@
                 </li>
             </ul>
             <div class="profile d-flex align-items-center gap-4 flex-row-reverse ms-auto letter-spacing-2">
-                <img src="{{ asset('images/profile_icon.png') }}" alt="" class="rounded-circle"
-                    style="width: 60px; height: 60px; cursor: pointer;">
+                <div class="dropdown">
+                    <img src="{{ asset('images/profile_icon.png') }}" alt="" class="rounded-circle dropdown-toggle"
+                        style="width: 60px; height: 60px; cursor: pointer;" id="profileDropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="{{ url('profile/mbti') }}">Profil</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <form action="{{ url("logout") }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Log Out</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
                 <a class="nav-link" href="#">Username</a>
                 <a href="" class="nav-link" style="color: blue">Atur Kegiatan</a>
             </div>
-
         </div>
     </div>
 </nav>
