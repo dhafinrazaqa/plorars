@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="welcome" style="background-image: url({{ asset('images/welcome_bg.jpg') }})">
+    <div class="welcome" style="background-image: url({{ asset('images/welcome_bg.jpg') }})" id="home">
         <div class="container d-flex justify-content-between align-items-center bg-cover position-relative"
             style="height: 720px;">
             <div class="welcome-text d-flex flex-column align-items-start gap-3" style="width: 616px;">
@@ -23,7 +23,7 @@
                 style="width: 360px; height: 500px;">
         </div>
     </div>
-    <div class="explore d-flex flex-column align-items-center gap-4 text-center my-5 container">
+    <div class="explore d-flex flex-column align-items-center gap-4 text-center my-5 container" id="explore">
         <div class="explore-desc d-flex flex-column align-items-center">
             <h1 class="fw-800 fs-64px font-raleway letter-spacing-2">Temukan Dirimu</h1>
             <p class="fw-400 font-poppins fs-6 text-center w-75">Plorars akan memberikan rekomendasi kegiatan
@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="why d-flex align-items-center justify-content-center gap-4 my-5 container">
+    <div class="why d-flex align-items-center justify-content-center gap-4 my-5 container" id="why">
         <h1 class="text-center letter-spacing-2 fw-800 font-raleway fs-48px">Mengapa Memilih
             <span class="highlight-color">Plorars?</span>
         </h1>
@@ -71,7 +71,7 @@
                 komunitas yang mendukung.</div>
         </div>
     </div>
-    <div class="join"
+    <div class="join" id="join"
         style="background-color: #B5D5E2; border-top-left-radius: 50px; border-top-right-radius: 50px; padding-block: 128px">
         <div class="container d-flex flex-column align-items-center gap-4">
             <h1 class="text-center letter-spacing-2 fw-800 font-raleway fs-64px">Unlock your <span

@@ -125,3 +125,8 @@ select:focus {
     outline: none !important;
     box-shadow: none !important;
 }
+
+/* Active */
+.active-navbar {
+    color: #37adbe !important;
+}

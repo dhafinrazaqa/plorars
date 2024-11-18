@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav gap-4">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                    <a class="nav-link active-navbar" aria-current="page" href="#home">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">FEATURES</a>
+                    <a class="nav-link" href="#explore">FEATURES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">WHY PLORARS?</a>
+                    <a class="nav-link" href="#why">WHY PLORARS?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">JOIN US</a>
+                    <a class="nav-link" href="#join">JOIN US</a>
                 </li>
             </ul>
             <button type="button"
