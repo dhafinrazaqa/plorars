@@ -1,16 +1,58 @@
-<style>
-    label, input, select, textarea {
-        color: #212E50;
-        font-weight: 600;
-        font-size: 18px;
-        font-family: raleway, sans-serif,poppins;
-        letter-spacing: 2px;
-    }
-
-</style>
-
 <x-admin-layout>
-    <div>
+    <div class="container-fluid shadow rounded-3" style="background-color: #212e50; width: 100%;">
+        <h1 class="fw-700 fs-48px letter-spacing-3 item-center text-center font-raleway font-poppins
+        m-0"
+            style="color: white; padding-block: 80px">
+            Selamat Datang, Admin!
+        </h1>
+    </div>
+
+    <div class="container bg-white rounded-5 p-5 shadow my-5">
+        <h1 class="fw-600 fs-48px letter-spacing-2 text-center font-raleway font-poppins" style="color: #212E50">List
+            Kegiatan</h1>
+        <a href="{{ url('admin/kegiatan/create') }}" class="btn btn-primary my-2">Tambah Kegiatan</a>
+        <table class="table table-bordered table-striped table-hover font-raleway" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nama Kegiatan</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Fakultas</th>
+                    <th scope="col">Deskripsi Kegiatan</th>
+                    <th scope="col">Link Kegiatan</th>
+                    <th scope="col">Gambar</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($kegiatans as $item)
+                    <tr class="text-center">
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->judul }}</td>
+                        <td>{{ $item->kategori }}</td>
+                        <td>{{ $item->fakultas }}</td>
+                        <td>{{ $item->deskripsi }}</td>
+                        <td>{{ $item->link }}</td>
+                        <td>
+                            <img src="{{ asset('storage/' . $item->gambar) }}" class="img-fluid" width="100">
+                        </td>
+                        <td>
+                            <a class="btn btn-warning"
+                                href="{{ url('admin/kegiatan/' . $item->id . '/edit') }}">Ubah</a>
+                            <form action="{{ url('admin/kegiatan/' . $item->id) }}" method="POST"
+                                class="d-inline ms-1">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    {{-- <div>
         <div class="container my-5 d-flex flex-column gap-3">
             <div class="d-flex flex-column gap-3 bg-white rounded-5 p-5 shadow">
                 <h1 class="fw-600 fs-48px letter-spacing-2 
@@ -83,5 +125,5 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 </x-admin-layout>

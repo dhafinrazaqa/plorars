@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionMinatBakat;
+use App\Http\Controllers\KegiatanController;
 
 Route::get('/', function () {
     return view('landingPage');
@@ -34,9 +35,14 @@ Route::get('/profile/kegiatan', function(){
 // Route::get('/register',[RegisteredUserController::class, 'create'])->name('register');
 // Route::post('/register',[RegisteredUserController::class, 'store']);
 
-Route::get('/dashboard|admin', function(){
-    return view('dashboard-admin');
-});
+// Route::get('/admin/kegiatan', function(){
+//     return view('admin/kegiatan/index');
+// });
+// Route::get('/admin/kegiatan/tambah-kegiatan', function(){
+//     return view('admin/kegiatan/create');
+// });
+
+Route::resource('admin/kegiatan', KegiatanController::class);
 
 Route::get('/testMbti',function(){
     return view('test-mbti');
