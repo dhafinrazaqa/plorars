@@ -49,6 +49,28 @@
                         </td>
                     </tr>
                 @endforeach
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        @if (session('success'))
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Sukses!',
+                                text: '{{ session('success') }}',
+                                timer: 3000,
+                                showConfirmButton: false
+                            });
+                        @elseif (session('error'))
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal!',
+                                text: '{{ session('error') }}',
+                                timer: 3000,
+                                showConfirmButton: false
+                            });
+                        @endif
+                    });
+                </script>
+                
             </tbody>
         </table>
     </div>
