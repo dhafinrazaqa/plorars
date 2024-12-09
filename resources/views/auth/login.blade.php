@@ -5,20 +5,21 @@
 @section('content')
     <div class="container" id="container" >
         <div class="form-container sign-up">
-            <form id="register-form" method = "POST" action="{{ route('register') }}">
+            <form id="register-form" method="POST" action="{{ route('register-handler') }}">
+              @csrf
                 <h1 style="position: relative; text-transform: uppercase;">Create Account</h1>
                 <div class="register-in">
                     <div class="form-group mb-3">
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        <input type="email" class="form-control" id="register-email" name="email" placeholder="Email" required>
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control" name="username_register" placeholder="Username" required>
+                        <input type="text" class="form-control" id="register-username" name="username_register" placeholder="Username" required>
                     </div>
                     <div class="form-group mb-3">
-                        <input type="password" id="passwordInput" class="form-control" name="password_register" placeholder="Password" required>
+                        <input type="password" id="register-password" class="form-control" name="password_register" placeholder="Password" required>
                     </div>
                     <div class="form-group mb-3">
-                        <input type="password" id="confirmPasswordInput" class="form-control" name="confirm_password" placeholder="Confirm Password" required>
+                        <input type="password" id="register-password-confirm" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
                     </div>
                 </div>                
                 <span id="error-message-register"></span><br>
@@ -26,15 +27,16 @@
             </form>
         </div>
         <div class="form-container sign-in">
-            <form id="login-form" method="POST" action="{{ route('login') }}">
+            <form id="login-form" method="POST" action="{{ route('login-handler') }}">
+              @csrf
                 <div class="img-container">
                     <img class="resize-img" src="{{ asset('images/logo.png') }}" alt="logo">
                 </div>
                 <div class="form-group mb-3">
-                    <input type="text" class="form-control" name="username" placeholder="Username" required>
+                    <input type="text" class="form-control" id="login-username" name="username" placeholder="Username" required>
                 </div>
                 <div class="form-group mb-3">
-                    <input type="password" id="passwordInput" class="form-control" name="password" placeholder="Password" required>
+                    <input type="password" id="login-password" class="form-control" name="password" placeholder="Password" required>
                 </div>                
                 <div class="checkbox-container">
                     <label class="checkbox-label" for="rememberMe">
@@ -45,7 +47,7 @@
                 <span id="error-message-login"></span><br>
                 <div class="forgot-pass">
                     <a>Forgot your password?</a>
-                    <a class="click" href="{{ route('password.request') }}">Click here</a><br>
+                    <a class="click" href="#">Click here</a><br>
                 </div>
                 <div class="btn-sign-in">
                     <button type="submit" class="btn btn-primary" name="submit">Sign In</button>
