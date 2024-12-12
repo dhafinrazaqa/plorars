@@ -1,52 +1,37 @@
-function handleFormSubmit(formElement, errorElement, processScript) {
-    formElement.addEventListener('submit', function(e) {
+function handleFormSubmit(formId, urlRoute, errorMessageId) {
+    document.getElementById(formId).addEventListener("submit", function (e) {
         e.preventDefault();
+        let formData = new FormData(this);
 
-        if (formElement.id === 'register-form') {
-            
-            const password = document.getElementById('passwordInput').value;
-            const confirmPassword = document.getElementById('confirmPasswordInput').value;
-            const errorMessage = document.getElementById('error-message-register');
-
-            if (password !== confirmPassword) {
-                errorMessage.textContent = "Passwords do not match.";
-                return;
-            }
-        }
-
-        const formData = new FormData(formElement);
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', processScript);
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-        xhr.setRequestHeader('Accept', 'application/json');
-
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                alert("Success!");
-                window.location.href = '/dashboard';
-            } else {
-                errorElement.textContent = 'An error occurred. Please try again.';
-            }
-        };
-
-        xhr.onerror = () => {
-            errorElement.textContent = 'Network Error. Please check your connection.';
-        };
-
-        xhr.send(formData);
+        fetch(urlRoute, {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                Accept: "application/json",
+            },
+            body: formData,
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    window.location.href = data.redirect || "/";
+                } else {
+                    document.getElementById(errorMessageId).innerText =
+                        data.message ||
+                        `${formId.replace("-form", "")} failed.`;
+                }
+            })
+            .catch((error) => console.error("Error:", error));
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    handleFormSubmit(
-        document.getElementById('register-form'),
-        document.getElementById('error-message-register'),
-        '{{ route("register") }}'
-    );
-    handleFormSubmit(
-        document.getElementById('login-form'),
-        document.getElementById('error-message-login'),
-        '{{ route("login") }}'
-    );
-});
-
+handleFormSubmit(
+    "login-form",
+    document.getElementById("login-form").getAttribute("action"),
+    "error-message-login"
+);
+handleFormSubmit(
+    "register-form",
+    document.getElementById("register-form").getAttribute("action"),
+    "error-message-register"
+);

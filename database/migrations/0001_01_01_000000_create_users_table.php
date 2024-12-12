@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table){
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('email', 255)->unique();
+            $table->string('username', 255);
+            $table->string('password', 255); 
+            $table->string('pfp', 255)->default('profile_icon.png');
+            $table->string('remember_token', 255)->nullable();
+            $table->string('reset_token_hash', 64)->nullable(); 
+            $table->dateTime('reset_token_expires_at')->nullable();
+            $table->timestamps(); 
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
