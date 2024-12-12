@@ -49,8 +49,9 @@ class KegiatanController extends Controller
 
         Kegiatan::create($validatedData);
 
-        return redirect('admin/kegiatan');
+        return redirect('admin/kegiatan')->with('success', 'Kegiatan berhasil ditambahkan!');
     }
+    
 
     /**
      * Display the specified resource.
@@ -93,7 +94,7 @@ class KegiatanController extends Controller
 
         Kegiatan::where('id', $id)->update($validatedData);
 
-        return redirect('admin/kegiatan');
+        return redirect('admin/kegiatan')->with('success', 'Kegiatan berhasil diperbarui!');
     }
 
     /**
@@ -107,6 +108,6 @@ class KegiatanController extends Controller
 
         $kegiatan->delete();
 
-        return redirect('admin/kegiatan');
+        return redirect('admin/kegiatan')->with('success', 'Kegiatan berhasil dihapus!');
     }
 }

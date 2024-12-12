@@ -2,6 +2,21 @@
     <div class="container bg-white rounded-5 p-5 shadow my-5">
         <div class="row p-lg-3">
             <div class="col">
+                @if ($errors->any())
+                    <script>
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            html: `
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            `,
+                        });
+                    </script>
+                @endif
                 <form action="/admin/kegiatan" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h1 class="fw-600 fs-48px letter-spacing-2 text-center font-raleway font-poppins"
@@ -35,14 +50,14 @@
                             class="form-select form-select-md rounded-2 mt-2 @error('fakultas') is-invalid @enderror"
                             id="fakultas" name="fakultas">
                             <option value="" selected>Pilih Fakultas</option>
-                            <option value = "None">None</option>
-                            <option value = "FIK">FIK</option>
-                            <option value = "FKS">FKS</option>
-                            <option value = "FEB">FEB</option>
-                            <option value = "FIF">FIF</option>
-                            <option value = "FIT">FIT</option>
-                            <option value = "FTE">FTE</option>
-                            <option value = "FRI">FRI</option>
+                            <option value="None">None</option>
+                            <option value="FIK">FIK</option>
+                            <option value="FKS">FKS</option>
+                            <option value="FEB">FEB</option>
+                            <option value="FIF">FIF</option>
+                            <option value="FIT">FIT</option>
+                            <option value="FTE">FTE</option>
+                            <option value="FRI">FRI</option>
                         </select>
                         @error('fakultas')
                             <div class="invalid-feedback">{{ $message }}</div>
