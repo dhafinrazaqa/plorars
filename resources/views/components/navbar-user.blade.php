@@ -11,14 +11,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav gap-4">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('home')}}">HOME</a>
+                    <a class="nav-link {{ request()->is('home') ? 'active' : '' }}" href="{{ url('home') }}">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url('search')}}">DISCOVER</a>
+                    <a class="nav-link {{ request()->is('search') ? 'active' : '' }}" href="{{ url('search') }}">DISCOVER</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('test')}}">TEST</a>
-                </li>
+                    <a class="nav-link {{ request()->is('test') ? 'active' : '' }}" href="{{ url('test') }}">TEST</a>
+                </li>                
             </ul>
             <div class="profile d-flex align-items-center gap-4 flex-row-reverse ms-auto letter-spacing-2">
                 <div class="dropdown">
