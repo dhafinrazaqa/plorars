@@ -14,7 +14,7 @@
                     dengan minat dan kepribadian Anda!</p>
                 <a href="#"
                     class="d-flex align-items-center gap-3 text-white px-4 py-3 font-raleway button-gradient fw-600 fs-4 rounded-5"
-                    style="border: none; text-decoration: none;">
+                    style="border: none; text-decoration: none;" onclick="window.location.href='{{ url('/login') }}'">
                     Mulai Sekarang
                     <img src="{{ asset('images/arrow_icon.png') }}" alt="">
                 </a>
@@ -82,7 +82,7 @@
                 mengambil tes dan temukan potensimu!</p>
             <a href="#"
                 class="d-flex align-items-center gap-3 text-white px-4 py-3 font-raleway button-gradient fw-600 fs-4 rounded-5"
-                style="border: none; text-decoration: none;">
+                style="border: none; text-decoration: none;" onclick="window.location.href='{{ url('/login') }}'">
                 Daftar Sekarang
                 <img src="{{ asset('images/arrow_icon.png') }}" alt="">
             </a>
@@ -90,19 +90,19 @@
     </div>
     <script>
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href').substring(1); 
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
 
                 if (targetElement) {
-                    e.preventDefault(); 
-                    const offset = 100; 
+                    e.preventDefault();
+                    const offset = 100;
                     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                     const offsetPosition = elementPosition - offset;
 
                     window.scrollTo({
                         top: offsetPosition,
-                        behavior: 'smooth' 
+                        behavior: 'smooth'
                     });
                 }
             });

@@ -24,7 +24,8 @@
                 </li>
             </ul>
             <button type="button"
-                class="btn btn-primary letter-spacing-3 px-4 py-2 rounded-pill button-gradient fs-7 ms-auto">
+                class="btn btn-primary letter-spacing-3 px-4 py-2 rounded-pill button-gradient fs-7 ms-auto"
+                onclick="window.location.href='{{ url('/login') }}'">
                 SIGN IN
             </button>
         </div>
