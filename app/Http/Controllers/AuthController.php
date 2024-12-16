@@ -17,10 +17,14 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
+        Log::info('Attempting login for user: ', ['username' => $credentials['username']]);
+
         if (Auth::attempt($credentials, $request->has('remember'))) {
-            return redirect()->route('home');
+            Log::info('Login successful for user: ', ['username' => $credentials['username']]);
+            return response()->json(['success' => true, 'message' => 'Login successful.', 'redirect' => '/home']);
         }
 
+        Log::warning('Login failed for user: ', ['username' => $credentials['username']]);
         return response()->json(['success' => false, 'message' => 'Login failed.']);
     }
 
