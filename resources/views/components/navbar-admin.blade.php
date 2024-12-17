@@ -10,13 +10,26 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav gap-4">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url('admin/kegiatan') }}">KEGIATAN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ROLES</a>
-                </li>
+                @can('product-list')
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('admin/kegiatan*') ? 'active' : '' }}"
+                            href="{{ url('admin/kegiatan') }}">KEGIATAN</a>
+                    </li>
+                @endcan
+                @can('role-list')
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('admin/roles*') ? 'active' : '' }}"
+                            href="{{ url('admin/roles') }}">ROLES</a>
+                    </li>
+                @endcan
+                @role('Admin')
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('admin/users*') ? 'active' : '' }}"
+                            href="{{ url('admin/users') }}">USERS</a>
+                    </li>
+                @endrole
             </ul>
+
             <div class="profile d-flex align-items-center gap-4 flex-row-reverse ms-auto letter-spacing-2">
                 <div class="dropdown">
                     <img src="{{ asset('images/profile_icon.png') }}" alt=""

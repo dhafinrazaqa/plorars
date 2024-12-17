@@ -5,6 +5,10 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionMinatBakat;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('landingPage');
@@ -55,6 +59,15 @@ Route::post('/simpan-hasil-minat-bakat',[QuestionMinatBakat::class, 'simpanHasil
 Route::post('/login-handler', [AuthController::class, 'login'])->name('login-handler');
 Route::post('/register-handler', [AuthController::class, 'register'])->name('register-handler');
 
-// Route::get('/homepage', function () {
-//     return view('homepage');
-// })->name('homepage');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('admin/roles', RoleController::class);
+    Route::resource('admin/users', UserController::class);
+    // Route::resource('products', ProductController::class);
+    Route::resource('admin/kegiatan', KegiatanController::class);
+});

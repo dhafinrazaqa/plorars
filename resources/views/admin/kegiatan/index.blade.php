@@ -10,7 +10,9 @@
     <div class="container bg-white rounded-5 p-5 shadow my-5">
         <h1 class="fw-600 fs-48px letter-spacing-2 text-center font-raleway font-poppins" style="color: #212E50">List
             Kegiatan</h1>
-        <a href="{{ url('admin/kegiatan/create') }}" class="btn btn-primary my-2">Tambah Kegiatan</a>
+        @can('product-create')
+            <a href="{{ url('admin/kegiatan/create') }}" class="btn btn-primary my-2">Tambah Kegiatan</a>
+        @endcan
         <table class="table table-bordered table-striped table-hover font-raleway" id="myTable">
             <thead>
                 <tr>
@@ -37,20 +39,24 @@
                             <img src="{{ asset('storage/' . $item->gambar) }}" class="img-fluid" width="100">
                         </td>
                         <td>
-                            <a class="btn btn-warning"
-                                href="{{ url('admin/kegiatan/' . $item->id . '/edit') }}">Ubah</a>
-                            <form action="{{ url('admin/kegiatan/' . $item->id) }}" method="POST"
-                                class="d-inline ms-1">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger"
-                                    onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
-                            </form>
+                            @can('product-edit')
+                                <a class="btn btn-warning"
+                                    href="{{ url('admin/kegiatan/' . $item->id . '/edit') }}">Ubah</a>
+                            @endcan
+                            @can('product-delete')
+                                <form action="{{ url('admin/kegiatan/' . $item->id) }}" method="POST"
+                                    class="d-inline ms-1">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                                </form>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach
                 <script>
-                    document.addEventListener('DOMContentLoaded', function () {
+                    document.addEventListener('DOMContentLoaded', function() {
                         @if (session('success'))
                             Swal.fire({
                                 icon: 'success',
@@ -70,7 +76,7 @@
                         @endif
                     });
                 </script>
-                
+
             </tbody>
         </table>
     </div>

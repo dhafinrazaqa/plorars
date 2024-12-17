@@ -40,7 +40,9 @@
                     </ul>
                 </div>
                 <a class="nav-link" href="#">Username</a>
-                <a href="{{ url('admin/kegiatan') }}" class="nav-link" style="color: blue">Atur Kegiatan</a>
+                @role('Admin')
+                    <a href="{{ url('admin/kegiatan') }}" class="nav-link" style="color: blue">Atur Kegiatan</a>
+                @endrole
             </div>
         </div>
     </div>
