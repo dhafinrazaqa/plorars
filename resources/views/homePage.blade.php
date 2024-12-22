@@ -58,7 +58,7 @@
                     class="position-absolute top-50 start-50 translate-middle 
                     text-center font-raleyway text-white letter-spacing-2 fw-700
                     responsive-text">
-                    Welcome, {{-- {{ auth()->user()->name }} --}}Dummy!!
+                    Welcome {{ Auth::user()->username }}!
                 </h1>
             </div>
         </div>
@@ -150,4 +150,3 @@
         </div>
     </div>
 </x-layout-user>
-

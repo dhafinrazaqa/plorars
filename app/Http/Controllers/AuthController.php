@@ -31,23 +31,28 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         // Correct validation with array of rules
-    $validated = $request->validate([
-        'email' => 'required|email|unique:users,email',
-        'username' => 'required|unique:users,username',
-        'password' => 'required|min:6',
-        'password_confirmation' => 'required|same:password',
-    ]);
+        $validated = $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password',
+        ]);
 
-    // Continue with user creation and authentication
-    $user = User::create([
-        'email' => $request->email,
-        'username' => $request->username,
-        'password' => Hash::make($request->password),
-    ]);
+        // Continue with user creation and authentication
+        $user = User::create([
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+        ]);
 
-    Auth::login($user);
+        Auth::login($user);
 
+<<<<<<< HEAD
     // Redirect to home
     return response()->json(['success' => true, 'message' => 'Register successful.', 'redirect' => '/login']);
+=======
+        // Redirect to home
+        return response()->json(['success' => true, 'message' => 'Register successful.', 'redirect' => '/home']);
+>>>>>>> d583d542e3aea8ec35e429595c146e3be210bf34
     }
 }
