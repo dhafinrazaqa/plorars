@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class minatBakat extends Model
 {
-    //
-    use HashFactory ;
-    
-    protected $fillable = ['question', 'opsi'];
-    
-    protected $casts = [
-      'opsi' => 'array'
-      ,];
-    
+  //
+  use HashFactory;
+
+  protected $fillable = ['question', 'opsi'];
+
+  protected $casts = [
+    'opsi' => 'array',
+  ];
 }

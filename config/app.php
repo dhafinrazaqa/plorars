@@ -123,4 +123,14 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // 'aliases' => [
+    //     'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
+    // ],
+
+    // 'providers' => [
+    //     // Other service providers...
+    //     Berkayk\OneSignal\OneSignalServiceProvider::class,
+    //     Laravel\Sanctum\SanctumServiceProvider::class,
+    //     Illuminate\Filesystem\FilesystemServiceProvider::class,
+    // ],
 ];

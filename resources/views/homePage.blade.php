@@ -122,7 +122,13 @@
             <div class="kegiatan-grid d-grid gap-3 m-5 justify-content-evenly 
             justify-items-center "
                 style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));">
-                <div class="col">
+                @foreach ($kegiatan as $item)
+                    <div class="col">
+                        <x-kegiatan-box :kegiatan="$item"></x-kegiatan-box>
+                    </div>
+                @endforeach
+
+                {{-- <div class="col">
                     <x-kegiatan-box></x-kegiatan-box>
                 </div>
                 <div class="col">
@@ -142,10 +148,7 @@
                 </div>
                 <div class="col">
                     <x-kegiatan-box></x-kegiatan-box>
-                </div>
-                <div class="col">
-                    <x-kegiatan-box></x-kegiatan-box>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

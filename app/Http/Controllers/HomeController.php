@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('homePage');
+        $kegiatan = Kegiatan::all();
+        return view('homePage', [
+            'kegiatan' => $kegiatan
+        ]);
     }
 }
