@@ -75,3 +75,4 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/send-test-notification', [NotificationController::class, 'sendNotification']);
+Route::get('/detail', [App\Http\Controllers\DetailController::class, 'index']);
