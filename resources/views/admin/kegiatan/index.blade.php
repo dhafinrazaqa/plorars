@@ -20,7 +20,6 @@
                     <th scope="col">Nama Kegiatan</th>
                     <th scope="col">Kategori</th>
                     <th scope="col">Fakultas</th>
-                    <th scope="col">Deskripsi Kegiatan</th>
                     <th scope="col">Link Kegiatan</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Aksi</th>
@@ -33,7 +32,6 @@
                         <td>{{ $item->judul }}</td>
                         <td>{{ $item->kategori }}</td>
                         <td>{{ $item->fakultas }}</td>
-                        <td>{{ $item->deskripsi }}</td>
                         <td>{{ $item->link }}</td>
                         <td>
                             <img src="{{ asset('storage/' . $item->gambar) }}" class="img-fluid" width="100">

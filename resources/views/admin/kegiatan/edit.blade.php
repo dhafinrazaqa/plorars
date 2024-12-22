@@ -2,7 +2,7 @@
     <div class="container bg-white rounded-5 p-5 shadow my-5">
         <div class="row p-lg-3">
             <div class="col">
-                <form action="/admin/kegiatan/{{ $kegiatan->id }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('kegiatan.update', $kegiatan->id) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <h1 class="fw-600 fs-48px letter-spacing-2 text-center font-raleway font-poppins"
