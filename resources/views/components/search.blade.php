@@ -1,4 +1,4 @@
-<form action="" method="GET" class="d-flex gap-3 p-3 bg-white rounded-5 shadow">
+<form action="{{ route('search.search') }}" method="GET" class="d-flex gap-3 p-3 bg-white rounded-5 shadow">
     <div class="options d-flex flex-column gap-3">
         <div class="search-bar d-flex align-items-center gap-4 bg-white rounded-pill py-2 px-3"
             style="width: 480px; border: 1px solid #BFBFBF;">
@@ -12,8 +12,8 @@
                 <select class="form-select bg-transparent border-0 p-0 w-100 font-poppins fs-6 fw-500 letter-spacing-1"
                     name="category" id="category">
                     <option value="Kategori">Kategori</option>
-                    <option value="sg">Study Group</option>
-                    <option value="ukm">UKM</option>
+                    <option value="Study Group">Study Group</option>
+                    <option value="Unit Kegiatan Mahasiswa">UKM</option>
                 </select>
                 <img src="../images/arrow_down.png" alt="">
             </div>

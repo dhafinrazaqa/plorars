@@ -4,27 +4,26 @@
         style="height: 225px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
         <!-- Display dynamic image -->
         <img class="w-100" style="height: max-content; filter: brightness(90%);"
-            src="{{ asset($kegiatan->image ?? 'images/placeholder_kegiatan.jpg') }}" alt="">
+            src="{{ asset('storage/' . $kegiatan->gambar) }}" alt="">
     </div>
     <div class="kegiatan-bottom w-100 d-flex flex-column gap-3 p-4 bg-white"
         style="height: 225px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
         <!-- Display dynamic category -->
         <p class="kegiatan-kategori fw-medium font-poppins letter-spacing-1 m-0"
             style="font-size: 12px; color: #b3b3b3;">
-            {{ $kegiatan->category ?? 'Category' }}</p>
+            {{ $kegiatan->kategori ?? 'Category' }}</p>
         <div class="kegiatan-judul d-flex align-items-center gap-3">
             <img class="w-auto" style="width: 28px;" src="{{ asset('images/kegiatan_logo.png') }}" alt="">
             <!-- Display dynamic event title -->
             <h1 class="fw-bold text-dark font-raleway letter-spacing-1 fs-4 m-0" style="color: #212E50;">
-                {{ $kegiatan->title ?? 'Sample Event Title' }}</h1>
+                {{ $kegiatan->judul ?? 'Sample Event Title' }}</h1>
         </div>
         <!-- Display dynamic event description -->
         <p class="kegiatan-desc fw-medium text-muted text-truncate font-poppins letter-spacing-1 m-0 overflow-hidden fw-500"
             style="font-size: 12px;">
-            {{ $kegiatan->description ?? 'Sample event description goes here.' }}</p>
+            {{ $kegiatan->deskripsi ?? 'Sample event description goes here.' }}</p>
         <div class="selengkapnya d-flex align-items-center ms-auto mt-auto gap-2">
-            <a href="{{ route('kegiatan.details', $kegiatan->id) }}"
-                class="text-decoration-none text-primary fw-medium font-poppins"
+            <a href="/kegiatan/{{ $kegiatan->id }}" class="text-decoration-none text-primary fw-medium font-poppins"
                 style="font-size: 12px; color: #37ADBE;">Selengkapnya</a>
             <img src="{{ asset('images/selengkapnya_arrow.png') }}" alt="" style="width: 12px; height: 12px;">
         </div>

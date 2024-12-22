@@ -2,25 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
-    public function index()
+    // Show the detail of a specific kegiatan by ID
+    public function show($id)
     {
-        $data = [
-            'title' => 'Chevalier Lab',
-            'faculty' => 'FIT',
-            'link' => 'https://chevalier.netlify.app',
-            'description' => 'Chevalier Lab adalah laboratorium yang berada dibawah
-            naungan program studi D3 Rpla
-            di fakultas ilmu terapan, telkom university.
-            chevalier lab merupakan wadah bagi para mahasiswa yang memiliki
-            minat dan ketertarikan untuk belajar lebih dalam tentang
-            teknologi informasi(IT).
-            Lab ini menyediakan berbagai divisi yang dapat dipilih sesuai dengan minat mahasiswa, yang semuanya di rancang
-            untuk meningkatkan kemampuan teknis dan kreatif mereka'
-        ];
-        return view('detail', compact('data'));
+        // Retrieve the kegiatan by ID from the database
+        $kegiatan = Kegiatan::findOrFail($id); // Use findOrFail to handle invalid IDs
+
+        // Return the view and pass the kegiatan data
+        return view('kegiatan.show', compact('kegiatan'));
     }
 }

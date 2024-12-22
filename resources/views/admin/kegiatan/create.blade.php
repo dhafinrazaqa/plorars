@@ -17,7 +17,7 @@
                         });
                     </script>
                 @endif
-                <form action="/admin/kegiatan" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('kegiatan.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h1 class="fw-600 fs-48px letter-spacing-2 text-center font-raleway font-poppins"
                         style="color: #212E50">Input

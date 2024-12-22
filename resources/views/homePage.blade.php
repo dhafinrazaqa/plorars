@@ -72,25 +72,32 @@
 
         <div class="position-relative m-5 p-5" style="top:30px;">
             <div class="d-flex justify-content-center align-items-center">
-                <input type="text" class="searching form-control form-control-lg ps-5 pt-2 fw-400 font-poppins"
-                    placeholder="Cari Kegiatan"
-                    style="border-radius:25px; background-image: url('{{ asset('images/search.png') }}'); 
-                    background-repeat: no-repeat; background-position: 10px center; width: 95%;">
+                <form action="{{ route('search.search') }}" method="GET" style="width: 95%;">
+                    <input type="text" name="query"
+                        class="searching form-control form-control-lg ps-5 pt-2 fw-400 font-poppins"
+                        placeholder="Cari Kegiatan"
+                        style="border-radius: 25px; background-image: url('{{ asset('images/search.png') }}'); 
+                        background-repeat: no-repeat; background-position: 10px center; width: 100%;">
+                </form>
             </div>
         </div>
+
 
         <div class="container my-4">
             <div class="row justify-content-center gap-5">
                 <div class="col-md-5 study-group-box">
-                    <a href="{{-- {{ route('search', ['category' => 'sg']) }} --}}" class="text-decoration-none">
+                    <a href="{{ route('search.search', ['query' => '', 'category' => 'Study Group', 'fakultas' => 'Fakultas']) }}"
+                        class="text-decoration-none">
                         <div class="study-group d-flex align-items-center justify-content-center p-4 rounded-4">
                             <span class="fs-1 me-2">📚</span>
                             <span class="text-white fw-bold fs-5">Study Group</span>
                         </div>
                     </a>
                 </div>
+
                 <div class="col-md-5 ukm-box">
-                    <a href="{{-- {{ route('search', ['category' => 'ukm']) }} --}}" class="text-decoration-none">
+                    <a href="{{ route('search.search', ['query' => '', 'category' => 'Unit Kegiatan Mahasiswa', 'fakultas' => 'Fakultas']) }}"
+                        class="text-decoration-none">
                         <div class="ukm d-flex align-items-center justify-content-center p-4 rounded-4">
                             <span class="fs-1 me-2">🎉</span>
                             <span class="text-white fw-bold fs-5">Unit Kegiatan Mahasiswa</span>

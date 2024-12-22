@@ -8,17 +8,18 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
-use Berkayk\OneSignal\OneSignalFacade as OneSignal;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\SearchController;
+use App\Models\Kegiatan;
 
 Route::get('/', function () {
     return view('landingPage');
 });
 
-Route::get('/search', function () {
-    return view('searchPage');
-});
+Route::get('/search', [SearchController::class, 'index'])->name('search.index'); // Initial page load
+Route::get('/search', [SearchController::class, 'search'])->name('search.search'); // Filtered results
+
 
 // Route::get('/home', function () {
 //     return view('homePage');
@@ -75,4 +76,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/send-test-notification', [NotificationController::class, 'sendNotification']);
-Route::get('/detail', [App\Http\Controllers\DetailController::class, 'index']);
+Route::get('/kegiatan/{id}', [DetailController::class, 'show'])->name('kegiatan.show');
+
+Route::get('/post', function () {
+    return redirect('admin.kegiatan.index');
+})->name('posts.show');
