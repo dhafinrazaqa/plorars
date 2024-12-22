@@ -49,7 +49,7 @@
                     </ul>
                 </div>
                 <a class="nav-link" href="#">{{ Auth::user()->username }}</a>
-                <a href="" class="nav-link" style="color: blue">User Homepage</a>
+                <a href="{{ url('home') }}" class="nav-link" style="color: blue">User Homepage</a>
             </div>
         </div>
     </div>
