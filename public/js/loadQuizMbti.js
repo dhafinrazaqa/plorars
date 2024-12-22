@@ -1,4 +1,3 @@
-
 function generateQuiz(nomorQuiz) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/tampilkan-quiz', true);
@@ -20,21 +19,26 @@ function generateQuiz(nomorQuiz) {
     xhr.send(JSON.stringify({ nomorQuiz : nomorQuiz }));
 }
 
-function submitQuiz(answer) {
-    const nomorQuiz = document.querySelector('input[name="nomor_quiz"]').value;
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/simpan-hasil', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            document.querySelector('input[name="nomor_quiz"]').value = parseInt(nomorQuiz) + 1;
-            generateQuiz(parseInt(nomorQuiz) + 1);
+function saveMbtiResult(jawaban) {
+    fetch('/api/mbti/saveResult', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({ jawaban: jawaban })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            console.log('Hasil MBTI berhasil disimpan: ', data.mbti_type);
+        } else {
+            console.error('Gagal menyimpan hasil MBTI: ', data.message);
         }
-    };
-
-    xhr.send(JSON.stringify({ nomorQuiz: nomorQuiz, jawaban: answer }));
+    })
+    .catch(error => {
+        console.error('Terjadi kesalahan: ', error);
+    });
 }
 
 function goNext(){

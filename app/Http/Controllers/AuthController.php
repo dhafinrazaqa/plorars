@@ -48,6 +48,6 @@ class AuthController extends Controller
     Auth::login($user);
 
     // Redirect to home
-    return redirect()->route('home');
+    return response()->json(['success' => true, 'message' => 'Register successful.', 'redirect' => '/login']);
     }
 }
