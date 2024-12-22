@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                 </div>
-                <a class="nav-link" href="#">Username</a>
+                <a class="nav-link" href="#">{{ Auth::user()->username }}</a>
                 @role('Admin')
                     <a href="{{ url('admin/kegiatan') }}" class="nav-link" style="color: blue">Atur Kegiatan</a>
                 @endrole

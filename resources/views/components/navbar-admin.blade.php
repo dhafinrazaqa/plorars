@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary font-roboto fs-7 shadow p-navbar bg-white"
     style="position: sticky; top: 0; z-index: 999">
     <div class="container-fluid letter-spacing-3">
-        <a class="navbar-brand me-5" href="#">
+        <a class="navbar-brand me-5" href="{{ url('/home') }}">
             <img src="{{ asset('images/navbar_logo.svg') }}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -48,7 +48,7 @@
                         </li>
                     </ul>
                 </div>
-                <a class="nav-link" href="#">Username</a>
+                <a class="nav-link" href="#">{{ Auth::user()->username }}</a>
                 <a href="" class="nav-link" style="color: blue">User Homepage</a>
             </div>
         </div>
