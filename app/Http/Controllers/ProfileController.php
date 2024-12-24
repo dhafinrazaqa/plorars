@@ -2,59 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Kegiatan;
+use App\Models\MbtiResult;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): View
+    public function showMBTI()
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $hasilMBTI = MbtiResult::where('user_id', auth()->id())->latest()->first();
+        $infoMBTI = DB::table('mbti_info')->where('mbti_type', $hasilMBTI->mbti_type)->first();
+
+        $jenisMBTI = $infoMBTI->mbti_type;
+        $jenisMBTIArray = str_split($infoMBTI->mbti_type);
+
+        $gambarMBTI = asset('images/mbti/' . $infoMBTI->mbti_image);
+
+        return view('profile.mbti', compact('hasilMBTI', 'gambarMBTI', 'jenisMBTI', 'jenisMBTIArray'));
     }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function showKegiatan()
     {
-        $request->user()->fill($request->validated());
+        $hasilMBTI = MbtiResult::where('user_id', auth()->id())->latest()->first();
+        $infoMBTI = DB::table('mbti_info')->where('mbti_type', $hasilMBTI->mbti_type)->first();
+        $kegiatans = Kegiatan::where('mbti_type', $infoMBTI->mbti_type)->get();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+        $jenisMBTI = $infoMBTI->mbti_type;
 
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return view('profile.kegiatan', compact('hasilMBTI', 'jenisMBTI', 'kegiatans'));
     }
 }

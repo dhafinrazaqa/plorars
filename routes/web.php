@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\MBTIController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Models\Kegiatan;
 
@@ -41,12 +42,12 @@ Route::get('/profile/kegiatan', function () {
     return view('/profile/kegiatan');
 });
 
+Route::get('/profile/mbti', [ProfileController::class, 'showMBTI']);
+Route::get('/profile/kegiatan', [ProfileController::class, 'showKegiatan']);
+
 Route::resource('admin/kegiatan', KegiatanController::class);
 
 Route::get('/mbti', [MbtiController::class, 'index']);
-Route::post('/mbti/submit', [MbtiController::class, 'submitAnswer'])->name('mbti.submit');
-Route::post('/mbti/store', [MbtiController::class, 'storeResults'])->name('mbti.store');
-
 
 Route::get('/testMinatBakat', function () {
     return view('test-minat-bakat');

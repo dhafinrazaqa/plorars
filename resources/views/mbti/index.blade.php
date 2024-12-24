@@ -66,10 +66,10 @@
                 style="width: 60%; justify-content: center;">
 
                 <!-- Navigation -->
-                <div class="d-flex justify-content-center align-items-center">
+                {{-- <div class="d-flex justify-content-center align-items-center">
                     <button id="prev-button" type="button" onclick="goPrev()"
                         class="btn btn-outline-secondary">Back</button>
-                </div>
+                </div> --}}
 
                 <div class="input-container d-flex flex-column gap-3 my-5">
                     <p id="question"></p>
