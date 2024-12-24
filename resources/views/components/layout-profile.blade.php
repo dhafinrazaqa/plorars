@@ -14,7 +14,8 @@
                 <div class="name d-flex flex-column align-items-center">
                     <h1 class="fw-800 font-raleway fs-2 letter-spacing-2">{{ Auth::user()->username }}</h1>
                     <div class="role rounded-pill" style="background-color: #A6EFA9">
-                        <p class="fw-400 font-poppins fs-6 letter-spacing-2 px-3 py-1 m-0" style="color: #266025">Admin
+                        <p class="fw-400 font-poppins fs-6 letter-spacing-2 px-3 py-1 m-0" style="color: #266025">
+                            {{ Auth::user()->getRoleNames()->first() }}
                         </p>
                     </div>
                 </div>
