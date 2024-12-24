@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\MBTIController;
+use App\Http\Controllers\MinatBakatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Models\Kegiatan;
@@ -35,19 +36,14 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/profile/mbti', function () {
-    return view('/profile/mbti');
-});
-Route::get('/profile/kegiatan', function () {
-    return view('/profile/kegiatan');
-});
-
 Route::get('/profile/mbti', [ProfileController::class, 'showMBTI']);
+Route::get('/profile/minat-bakat', [ProfileController::class, 'showMinatBakat']);
 Route::get('/profile/kegiatan', [ProfileController::class, 'showKegiatan']);
 
 Route::resource('admin/kegiatan', KegiatanController::class);
 
 Route::get('/mbti', [MbtiController::class, 'index']);
+Route::get('/minatBakat', [MinatBakatController::class, 'index']);
 
 Route::get('/testMinatBakat', function () {
     return view('test-minat-bakat');

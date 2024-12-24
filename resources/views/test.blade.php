@@ -28,7 +28,7 @@
                         karier atau kegiatan yang sesuai.
                     </p>
                 </div>
-                <a class="btn-link d-flex align-items-center justify-content-center" href="{{ url('testMinatBakat') }}">
+                <a class="btn-link d-flex align-items-center justify-content-center" href="{{ url('minatBakat') }}">
                     <img src="{{ asset('images/minat_bakat_button.png') }}" alt="">
                 </a>
             </div>

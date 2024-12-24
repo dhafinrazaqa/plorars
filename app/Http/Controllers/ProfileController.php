@@ -25,6 +25,37 @@ class ProfileController extends Controller
         return view('profile.mbti', compact('hasilMBTI', 'gambarMBTI', 'jenisMBTI', 'jenisMBTIArray'));
     }
 
+    public function showMinatBakat()
+    {
+        $mbtiResult = MbtiResult::where('user_id', auth()->id())->latest()->first();
+        $mbtiInfo = DB::table('mbti_info')->where('mbti_type', $mbtiResult->mbti_type)->first();
+
+        $jenisMBTI = $mbtiInfo->mbti_type;
+
+        $minatBakatResult = DB::table('minat_bakat_results')->where('user_id', auth()->id())->latest()->first();
+        $result1 = $minatBakatResult->result1;
+        $result2 = $minatBakatResult->result2;
+        $result3 = $minatBakatResult->result3;
+
+        $minatBakatInfo1 = DB::table('minat_bakat_info')->where('minat_bakat_type', $result1)->first();
+        $minatBakatInfo2 = DB::table('minat_bakat_info')->where('minat_bakat_type', $result2)->first();
+        $minatBakatInfo3 = DB::table('minat_bakat_info')->where('minat_bakat_type', $result3)->first();
+
+        $karirList1 = json_decode($minatBakatInfo1->karir);
+        $karirList2 = json_decode($minatBakatInfo2->karir);
+        $karirList3 = json_decode($minatBakatInfo3->karir);
+
+        return view('profile.minatBakat', compact(
+            'jenisMBTI',
+            'result1',
+            'result2',
+            'result3',
+            'karirList1',
+            'karirList2',
+            'karirList3'
+        ));
+    }
+
     public function showKegiatan()
     {
         $hasilMBTI = MbtiResult::where('user_id', auth()->id())->latest()->first();
