@@ -10,6 +10,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\MBTIController;
 use App\Http\Controllers\SearchController;
 use App\Models\Kegiatan;
 
@@ -42,22 +43,23 @@ Route::get('/profile/kegiatan', function () {
 
 Route::resource('admin/kegiatan', KegiatanController::class);
 
-Route::get('/testMbti', function () {
-    return view('test-mbti');
-});
+Route::get('/mbti', [MbtiController::class, 'index']);
+Route::post('/mbti/submit', [MbtiController::class, 'submitAnswer'])->name('mbti.submit');
+Route::post('/mbti/store', [MbtiController::class, 'storeResults'])->name('mbti.store');
+
 
 Route::get('/testMinatBakat', function () {
     return view('test-minat-bakat');
 });
 
 // Generate soal quiz
-Route::post('/tampilkan-quiz', [QuestionController::class, 'tampilkanQuiz']);
+// Route::post('/tampilkan-quiz', [QuestionController::class, 'tampilkanQuiz']);
 
-Route::post('/simpan-hasil', [QuestionController::class, 'simpanHasil']);
+// Route::post('/simpan-hasil', [QuestionController::class, 'simpanHasil']);
 
-Route::post('/tampilkan-quiz-mb', [QuestionMinatBakat::class, 'tampilkanQuiz']);
+// Route::post('/tampilkan-quiz-mb', [QuestionMinatBakat::class, 'tampilkanQuiz']);
 
-Route::post('/simpan-hasil-minat-bakat', [QuestionMinatBakat::class, 'simpanHasil']);
+// Route::post('/simpan-hasil-minat-bakat', [QuestionMinatBakat::class, 'simpanHasil']);
 
 Route::post('/login-handler', [AuthController::class, 'login'])->name('login-handler');
 Route::post('/register-handler', [AuthController::class, 'register'])->name('register-handler');

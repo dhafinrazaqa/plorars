@@ -81,6 +81,17 @@
                         @enderror
                     </div>
                     <div class="mb-3 font-raleway">
+                        <label for="mbti_type" class="form-label fw-600 m-0">MBTI Type :</label>
+                        <input type="text"
+                            class="form-control rounded-2 mt-2 @error('mbti_type') is-invalid @enderror"
+                            value="{{ old('mbti_type') }}" id="mbti_type" name="mbti_type"
+                            placeholder="Masukkan MBTI Type (e.g., ENTJ)">
+                        @error('mbti_type')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3 font-raleway">
                         <label for="gambar" class="form-label fw-600 m-0">Gambar :</label>
                         <img class="img-preview img-fluid mb-3" width="250px">
                         <input type="file" class="form-control rounded-2 mt-2 @error('gambar') is-invalid @enderror"

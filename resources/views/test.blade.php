@@ -28,7 +28,7 @@
                         karier atau kegiatan yang sesuai.
                     </p>
                 </div>
-                <a class="btn-link d-flex align-items-center justify-content-center" href="{{ url('testMinatBakat')}}">
+                <a class="btn-link d-flex align-items-center justify-content-center" href="{{ url('testMinatBakat') }}">
                     <img src="{{ asset('images/minat_bakat_button.png') }}" alt="">
                 </a>
             </div>
@@ -48,7 +48,7 @@
                         keputusan.
                     </p>
                 </div>
-                <a class="btn-link d-flex align-items-center justify-content-center" href="{{ url('testMbti') }}">
+                <a class="btn-link d-flex align-items-center justify-content-center" href="{{ url('mbti') }}">
                     <img src="{{ asset('images/mbti_button.png') }}" alt="">
                 </a>
             </div>

@@ -21,6 +21,7 @@
                     <th scope="col">Kategori</th>
                     <th scope="col">Fakultas</th>
                     <th scope="col">Link Kegiatan</th>
+                    <th scope="col">MBTI Type</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Aksi</th>
                 </tr>
@@ -33,6 +34,7 @@
                         <td>{{ $item->kategori }}</td>
                         <td>{{ $item->fakultas }}</td>
                         <td>{{ $item->link }}</td>
+                        <td>{{ $item->mbti_type }}</td>
                         <td>
                             <img src="{{ asset('storage/' . $item->gambar) }}" class="img-fluid" width="100">
                         </td>

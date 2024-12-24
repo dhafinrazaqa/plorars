@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateKegiatanRequest;
 use App\Notifications\KegiatanNotification;
 use Illuminate\Support\Facades\Storage;
 use Berkayk\OneSignal\OneSignalFacade as OneSignal;
+use Illuminate\Support\Facades\Log;
 
 class KegiatanController extends Controller
 {
@@ -51,6 +52,7 @@ class KegiatanController extends Controller
             'deskripsi' => 'required',
             'gambar' => 'required|image|file|max:2048',
             'link' => 'required',
+            'mbti_type' => 'required',
         ]);
 
         // Handle the file upload
@@ -99,6 +101,9 @@ class KegiatanController extends Controller
      */
     public function update(UpdateKegiatanRequest $request, $id)
     {
+        Log::info('Updating kegiatan with ID: ' . $id);
+        Log::info('Request data: ', $request->all());
+
         // Validate request data
         $validatedData = $request->validate([
             'judul' => 'required',
@@ -107,7 +112,10 @@ class KegiatanController extends Controller
             'deskripsi' => 'required',
             'gambar' => 'image|file|max:2048',
             'link' => 'required',
+            'mbti_type' => 'required',
         ]);
+
+        Log::info('Validated data: ', $validatedData);
 
         // Check if there's a new image, and delete the old one if it exists
         if ($request->hasFile('gambar')) {
@@ -121,20 +129,27 @@ class KegiatanController extends Controller
         }
 
         // Update the kegiatan record
+        Log::info('Updating kegiatan record with ID: ' . $id);
+        Log::info('Fetching kegiatan record from database...');
         $kegiatan = Kegiatan::find($id);
+        Log::info('Found kegiatan record: ', $kegiatan->toArray());
+        Log::info('Updating kegiatan record with validated data: ', $validatedData);
         $kegiatan->update($validatedData);
+        Log::info('Updated kegiatan record: ', $kegiatan->toArray());
+
+        Log::info('Updated kegiatan with ID: ' . $id);
 
         // Prepare notification details
         $message = "A kegiatan has been updated: " . $kegiatan->judul;
         $url = url("/kegiatan/{$kegiatan->id}");
-
-        // Get the URL of the new or old image
 
         // Send OneSignal notification with an image
         OneSignal::sendNotificationToAll(
             $message,
             $url,
         );
+
+        Log::info('Sent OneSignal notification');
 
         // Redirect with success message
         return redirect('admin/kegiatan')->with('success', 'Kegiatan berhasil diperbarui!');

@@ -47,12 +47,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-<<<<<<< HEAD
-    // Redirect to home
-    return response()->json(['success' => true, 'message' => 'Register successful.', 'redirect' => '/login']);
-=======
         // Redirect to home
         return response()->json(['success' => true, 'message' => 'Register successful.', 'redirect' => '/home']);
->>>>>>> d583d542e3aea8ec35e429595c146e3be210bf34
     }
 }

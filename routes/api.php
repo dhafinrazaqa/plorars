@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Controllers\MBTIController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\MbtiResultController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post('/mbti/save-result', [MbtiResultController::class, 'storeResult']);
+Route::get('/mbti/questions', [MBTIController::class, 'getQuestions']);
+Route::post('/mbti/results', [MBTIController::class, 'storeResults']);
 
-Route::get('/mbti/get-result', [MbtiResultController::class, 'getResult']);
+Auth::routes();

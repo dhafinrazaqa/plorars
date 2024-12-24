@@ -11,6 +11,8 @@ class MbtiResult extends Model
 
     protected $table = 'mbti_results';
 
+    public $timestamps = false;  // Disable timestamps
+
     protected $fillable = [
         'user_id',
         'mbti_type',
@@ -18,6 +20,6 @@ class MbtiResult extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(User::class);
     }
 }
