@@ -15,6 +15,11 @@ class ProfileController extends Controller
     public function showMBTI()
     {
         $hasilMBTI = MbtiResult::where('user_id', auth()->id())->latest()->first();
+
+        if (is_null($hasilMBTI) || is_null($hasilMBTI->mbti_type)) {
+            return redirect()->route('test');
+        }
+
         $infoMBTI = DB::table('mbti_info')->where('mbti_type', $hasilMBTI->mbti_type)->first();
 
         $jenisMBTI = $infoMBTI->mbti_type;
@@ -33,6 +38,10 @@ class ProfileController extends Controller
         $jenisMBTI = $mbtiInfo->mbti_type;
 
         $minatBakatResult = DB::table('minat_bakat_results')->where('user_id', auth()->id())->latest()->first();
+        if (is_null($minatBakatResult) || is_null($minatBakatResult->result1)) {
+            return redirect()->route('test');
+        }
+
         $result1 = $minatBakatResult->result1;
         $result2 = $minatBakatResult->result2;
         $result3 = $minatBakatResult->result3;
